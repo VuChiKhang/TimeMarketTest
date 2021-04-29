@@ -33,7 +33,7 @@ const HomeScreen  = () => {
     )
 
     const cardFooter = (props) => (
-        <View {...props} styles={styles.cardFooter} >
+        <View {...props} styles={styles.cardFooter} style={[props.style, styles.footerContainer]} >
             {/* <Icon name="shopping-cart-outline" /> */}
             <View styles={styles.cardButton} >
             <Button ></Button>
@@ -45,13 +45,13 @@ const HomeScreen  = () => {
       );
 
     return(
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} >
             <TopNavigation title='HOME' alignment='center'/>
             <Divider/>
             <Layout style={styles.layout}>
                 <Button onPress={() => navigation.navigate('SignUp')}>OPEN DETAILS</Button>
                 <View>
-                <Card header={cardHeader} footer={cardFooter} ></Card>
+                <Card header={cardHeader} footer={cardFooter} style={styles.card} ></Card>
                 </View>
 
 
@@ -76,12 +76,22 @@ styles = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center'
     },
+    
+    card:{
+        flex: 1,
+        margin: 2,
+    },
 
     cardButton:{
         width: '20%'
     },
 
     cardFooter:{
-        flexDirection: 'row'
-    }
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    },
+
+    footerControl: {
+        marginHorizontal: 2,
+      },
 })
